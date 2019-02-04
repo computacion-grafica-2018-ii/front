@@ -29,7 +29,16 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.1.11.1.js",
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/SmoothScroll.js",
+              "src/assets/js/nivo-lightbox.js",
+              "src/assets/js/jquery.isotope.js",
+              "src/assets/js/jqBootstrapValidation.js",
+              "src/assets/js/contact_me.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {

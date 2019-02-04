@@ -1,5 +1,3 @@
-@import './assets/css/bootstrap.css';
-
 body, html {
 	font-family: 'Roboto', sans-serif;
 	text-rendering: optimizeLegibility !important;
@@ -168,7 +166,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url('./assets/img/intro-bg.jpg') no-repeat center bottom;
+	background: url(../img/intro-bg.jpg) no-repeat center bottom;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -349,7 +347,7 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #a7c44c url('./assets/img/team-bg.jpg') center top no-repeat;
+	background: #a7c44c url(../img/team-bg.jpg) center top no-repeat;
 	background-size: cover;
 }
 #team .overlay {
