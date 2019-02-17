@@ -1,0 +1,48 @@
+<!-- Contact Section -->
+<div id="contact">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Contáctenos</h2>
+      <hr>
+      <p>Le responderemos lo más rápido posible.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>Información de contacto</h3>
+      <div class="contact-item"> <span>Dirección</span>
+        <p>4321 California St,<br>
+          San Francisco, CA 12345</p>
+      </div>
+      <div class="contact-item"> <span>Correo</span>
+        <p>info@company.com</p>
+      </div>
+      <div class="contact-item"> <span>Teléfono</span>
+        <p> +1 123 456 1234</p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>Déjenos un mensaje</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Nombre" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Correo" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-custom btn-lg">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>

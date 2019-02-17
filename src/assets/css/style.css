@@ -100,14 +100,14 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	border-color: rgba(231, 231, 231, 0);
 }
 #menu a.navbar-brand {
-	font-size: 22px;
+  font-size: 22px;
 	color: #eee;
 	font-weight: 400;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
 #menu.navbar-default .navbar-nav > li > a {
-	text-transform: uppercase;
+  text-transform: uppercase;
 	color: #a7c44c;
 	font-weight: 400;
 	font-size: 15px;
@@ -117,10 +117,10 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin: 10px 15px 0 15px;
 }
 #menu.navbar-default .navbar-nav > li > a:hover {
-	color: #eee;
+  color: #eee;
 }
 .on {
-	background-color: #363636 !important;
+  background-color: #363636 !important;
 	padding: 0 !important;
 	padding: 10px 0 !important;
 }
