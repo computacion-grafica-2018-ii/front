@@ -13,7 +13,12 @@ import { ContactComponent } from './components/views/contact/contact.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { NavbarWrapperComponent } from './components/views/route-wrappers/navbar-wrapper/navbar-wrapper.component';
 import { LandingComponent } from './components/views/landing/landing.component';
-import { TestFurnitureComponent } from './components/views/forms/test-furniture/test-furniture.component';
+import { AngelFurnitureComponent } from './components/views/forms/angel-furniture/angel-furniture.component';
+import { MuebleTvComponent } from './components/views/forms/mueble-tv/mueble-tv.component';
+import { McocinaComponent } from './components/views/forms/mcocina/mcocina.component';
+import { MLinosComponent } from './components/views/forms/m-linos/m-linos.component';
+import { MTv4Component } from './components/views/forms/m-tv4/m-tv4.component';
+import { MBanhoComponent } from './components/views/forms/m-banho/m-banho.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { TestFurnitureComponent } from './components/views/forms/test-furniture/
     NavbarComponent,
     NavbarWrapperComponent,
     LandingComponent,
-    TestFurnitureComponent
+    AngelFurnitureComponent,
+    MuebleTvComponent,
+    McocinaComponent,
+    MLinosComponent,
+    MTv4Component,
+    MBanhoComponent
   ],
   imports: [
     BrowserModule,

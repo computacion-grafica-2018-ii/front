@@ -1,0 +1,77 @@
+<div class="content">
+  <form name="form" [formGroup]="form">
+    <div class="row">
+      <h3>Datos de usuario</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('name')!='none'">
+          <label>Nombre</label>
+          <input type="text" class="form-control" formControlName="name">
+          <span class="help-block" *ngIf="inputErrorHandler('name')!='none'">{{inputErrorHandler('name')}}</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('email')!='none'">
+          <label>Correo</label>
+          <input type="email" class="form-control" formControlName="email">
+          <span class="help-block" *ngIf="inputErrorHandler('email')!='none'">{{inputErrorHandler('email')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group" [class.has-error]="inputErrorHandler('quantity')!='none'">
+          <label>Cantidad</label>
+          <input type="number" class="form-control" formControlName="quantity">
+          <span class="help-block" *ngIf="inputErrorHandler('quantity')!='none'">{{inputErrorHandler('quantity')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Especificaciones</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('altoTotal')!='none'">
+          <label>Alto (milímetros)</label>
+          <input type="number" class="form-control" min="1" value="2800" formControlName="altoTotal">
+          <span class="help-block" *ngIf="inputErrorHandler('altoTotal')!='none'">{{inputErrorHandler('altoTotal')}}</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('ancho')!='none'">
+          <label>Ancho (milímetros)</label>
+          <input type="number" class="form-control" min="1" value="2200" formControlName="ancho">
+          <span class="help-block" *ngIf="inputErrorHandler('ancho')!='none'">{{inputErrorHandler('ancho')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('largo')!='none'">
+          <label>Largo (milímetros)</label>
+          <input type="number" class="form-control" min="1" value="800" formControlName="largo">
+          <span class="help-block" *ngIf="inputErrorHandler('largo')!='none'">{{inputErrorHandler('largo')}}</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('ancho2')!='none'">
+          <label>Ancho Estantería (milímetros)</label>
+          <input type="number" class="form-control" min="1" value="600" formControlName="ancho2">
+          <span class="help-block" *ngIf="inputErrorHandler('ancho2')!='none'">{{inputErrorHandler('ancho2')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [class.has-error]="inputErrorHandler('cantCajones')!='none'">
+          <label>Cantidad de cajones</label>
+          <input type="number" class="form-control" min="1" value="4" formControlName="cantCajones">
+          <span class="help-block" *ngIf="inputErrorHandler('cantCajones')!='none'">{{inputErrorHandler('cantCajones')}}</span>
+        </div>
+      </div>
+    </div>
+    <div (click)="sendRequest()" class="btn btn-custom btn-lg" [class.disabled]="!form.valid">Solicitar Cotización</div>
+  </form>
+</div>
