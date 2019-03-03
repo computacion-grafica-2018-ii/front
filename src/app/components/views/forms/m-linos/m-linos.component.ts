@@ -15,11 +15,11 @@ export class MLinosComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required ] ),
 
-    Height: new FormControl( 2000, [ Validators.required, Validators.min( 1900 ), Validators.max( 2500 ) ] ),
-    Width: new FormControl( 1800, [ Validators.required, Validators.min( 1400 ), Validators.max( 2000 ) ] ),
-    Depth: new FormControl( 400, [ Validators.required, Validators.min( 350 ), Validators.max( 550 ) ] ),
-    NumSpacesL: new FormControl( 2, [ Validators.required ] ),
-    NumSpacesR: new FormControl( 4, [ Validators.required ] ),
+    Height: new FormControl( 2500, [ Validators.required, Validators.min( 1900 ), Validators.max( 2500 ) ] ),
+    Width: new FormControl( 2000, [ Validators.required, Validators.min( 1400 ), Validators.max( 2000 ) ] ),
+    Depth: new FormControl( 550, [ Validators.required, Validators.min( 350 ), Validators.max( 550 ) ] ),
+    NumSpacesL: new FormControl( 4, [ Validators.required ] ),
+    NumSpacesR: new FormControl( 5, [ Validators.required ] ),
     FurniType: new FormControl( 0, [ Validators.required ] ),
   }, this.customValidators )
 
@@ -33,11 +33,11 @@ export class MLinosComponent implements OnInit {
     let NumSpacesL = AC.get( 'NumSpacesL' ).value
     let NumSpacesR = AC.get( 'NumSpacesR' ).value * .8
 
-    if ( Height / NumSpacesL < 300 ) {
+    if ( Height / NumSpacesL < 300 || Height / NumSpacesL > 700 ) {
       AC.get( 'NumSpacesL' ).setErrors({
           error: true
       })
-    } else if ( Height / NumSpacesR < 300 ) {
+    } else if ( Height / NumSpacesR < 300 || Height / NumSpacesR > 700 ) {
       AC.get( 'NumSpacesR' ).setErrors({
           error: true
       })
