@@ -15,22 +15,12 @@ export class MLinosComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required ] ),
 
-    quantity: new FormControl( 1, [ Validators.required ] ),
-
-    Height: new FormControl( 2400, [ Validators.required ] ),
-    Width: new FormControl( 1700, [ Validators.required ] ),
-    Depth: new FormControl( 460, [ Validators.required ] ),
-    NumSpacesL: new FormControl( 6, [ Validators.required ] ),
+    Height: new FormControl( 2000, [ Validators.required, Validators.min( 1900 ), Validators.max( 2500 ) ] ),
+    Width: new FormControl( 1800, [ Validators.required, Validators.min( 1400 ), Validators.max( 2000 ) ] ),
+    Depth: new FormControl( 400, [ Validators.required, Validators.min( 350 ), Validators.max( 550 ) ] ),
+    NumSpacesL: new FormControl( 2, [ Validators.required ] ),
     NumSpacesR: new FormControl( 4, [ Validators.required ] ),
     FurniType: new FormControl( 0, [ Validators.required ] ),
-
-    PricePerArea20mm: new FormControl( 1000, [ Validators.required ] ),
-    PricePerArea30mm: new FormControl( 2000, [ Validators.required ] ),
-    PrecioMinifix: new FormControl( 1500, [ Validators.required ] ),
-    PrecioBisagra: new FormControl( 10000, [ Validators.required ] ),
-    PrecioTornillo: new FormControl( 1000, [ Validators.required ] ),
-
-    Cotizacion: new FormControl( Math.floor( Math.random( ) * 10000 ), [ Validators.required ] ),
   }, this.customValidators )
 
   constructor( private testService: TestService, private alertService: AlertService, private router: Router ) { }
@@ -70,12 +60,24 @@ export class MLinosComponent implements OnInit {
       case 'Height':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 1900'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 2500'
       case 'Width':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 1400'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 2000'
       case 'Depth':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 350'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 550'
       case 'NumSpacesL':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'

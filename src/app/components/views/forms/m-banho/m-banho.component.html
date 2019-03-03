@@ -20,15 +20,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2">
-          <div class="form-group" [class.has-error]="inputErrorHandler('quantity')!='none'">
-            <label>Cantidad</label>
-            <input type="number" class="form-control" formControlName="quantity">
-            <span class="help-block" *ngIf="inputErrorHandler('quantity')!='none'">{{inputErrorHandler('quantity')}}</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
         <h3>Especificaciones</h3>
       </div>
       <div class="row">
@@ -55,13 +46,6 @@
             <span class="help-block" *ngIf="inputErrorHandler('Alto')!='none'">{{inputErrorHandler('Alto')}}</span>
           </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group" [class.has-error]="inputErrorHandler('Alto_Puerta')!='none'">
-              <label>Alto_Puerta (milímetros)</label>
-              <input type="number" class="form-control" formControlName="Alto_Puerta">
-              <span class="help-block" *ngIf="inputErrorHandler('Alto_Puerta')!='none'">{{inputErrorHandler('Alto_Puerta')}}</span>
-            </div>
-          </div>
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -73,7 +57,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group" [class.has-error]="inputErrorHandler('Largo_PI')!='none'">
-            <label>largo puerta izquierda (milímetros)</label>
+            <label>Largo puerta izquierda (milímetros)</label>
             <input type="number" class="form-control" formControlName="Largo_PI">
             <span class="help-block" *ngIf="inputErrorHandler('Largo_PI')!='none'">{{inputErrorHandler('Largo_PI')}}</span>
           </div>

@@ -15,21 +15,10 @@ export class McocinaComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required ] ),
 
-    quantity: new FormControl( 1, [ Validators.required ] ),
-
     Altura_Total: new FormControl( 600, [ Validators.required ] ),
     Ancho_Total: new FormControl( 320, [ Validators.required ] ),
     Largo_Total: new FormControl( 600, [ Validators.required ] ),
     Cantidad_Compartimentos: new FormControl( 4, [ Validators.required ] ),
-
-    precioMadera1: new FormControl( 100, [ Validators.required ] ),
-    precioMadera2: new FormControl( 200, [ Validators.required ] ),
-    precioTornillos: new FormControl( 10, [ Validators.required ] ),
-    precioVisagra: new FormControl( 20, [ Validators.required ] ),
-    precioManija: new FormControl( 30, [ Validators.required ] ),
-
-    cotizacion: new FormControl( Math.floor( Math.random( ) * 10000 ), [ Validators.required ] ),
-
   })
 
   constructor( private testService: TestService, private alertService: AlertService, private router: Router ) { }

@@ -13,21 +13,11 @@ export class MTv4Component implements OnInit {
 
   form = new FormGroup({
     name: new FormControl( null, [ Validators.required ] ),
-    email: new FormControl( null, [ Validators.required ] ),
+    email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
-    quantity: new FormControl( 1, [ Validators.required ] ),
-
-    alto: new FormControl( 500, [ Validators.required ] ),
-    ancho: new FormControl( 2000, [ Validators.required ] ),
-    profundidad: new FormControl( 350, [ Validators.required ] ),
-
-    precioMadera: new FormControl( 456, [ Validators.required ] ),
-    precioAluminio: new FormControl( 50, [ Validators.required ] ),
-    precioBisagra: new FormControl( 50, [ Validators.required ] ),
-    precioTornillo: new FormControl( 50, [ Validators.required ] ),
-    precioMinifix: new FormControl( 50, [ Validators.required ] ),
-
-    cotizacion: new FormControl( Math.floor( Math.random( ) * 10000 ), [ Validators.required ] ),
+    alto: new FormControl( 1000, [ Validators.required, Validators.min( 500 ), Validators.max( 1000 ) ] ),
+    ancho: new FormControl( 2000, [ Validators.required, Validators.min( 500 ), Validators.max( 2000 ) ] ),
+    profundidad: new FormControl( 350, [ Validators.required, Validators.min( 200 ), Validators.max( 500 ) ] ),
   })
 
   constructor( private testService: TestService, private alertService: AlertService, private router: Router ) { }
@@ -61,18 +51,32 @@ export class MTv4Component implements OnInit {
       case 'email':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name ).hasError( 'email' ) )
+          return 'Email inválido'
       case 'quantity':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
       case 'alto':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name ).hasError( 'min' ) )
+          return 'Mínimo 500'
+        else if ( this.form.get( name ).hasError( 'max' ) )
+          return 'Máximo 1000'
       case 'ancho':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name ).hasError( 'min' ) )
+          return 'Mínimo 500'
+        else if ( this.form.get( name ).hasError( 'max' ) )
+          return 'Máximo 2000'
       case 'profundidad':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name ).hasError( 'min' ) )
+          return 'Mínimo 200'
+        else if ( this.form.get( name ).hasError( 'max' ) )
+          return 'Máximo 500'
     }
 
     return 'none'

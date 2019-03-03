@@ -15,9 +15,10 @@ export class TestService {
   closetQuot( formValue ) {
 
     let toBePosted: any = {
-      product_id: 2,
-      user_id: 1,
-      quantity: formValue.quantity,
+      product_id: 1,
+      name: formValue.name,
+      email: formValue.email,
+      quantity: 1,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
 
@@ -27,8 +28,8 @@ export class TestService {
     toBePosted.specifications.largoPiso = formValue.largo - 20 - 2 * ( formValue.espesorTablas - 4 )
     toBePosted.specifications.anchoPiso = toBePosted.specifications.anchoCajon - 2 * formValue.anchoRiel - 2 * ( formValue.espesorTablas - 4 )
     toBePosted.specifications.anchoPuerta = Math.floor( ( formValue.ancho - formValue.anchoVisagra * 4 ) / 4 )
-    toBePosted.specifications.altoPuerta = formValue.altoTotal - 10
-    toBePosted.specifications.anchiPuerta2 = Math.floor( ( formValue.ancho - formValue.anchoVisagra * 2 ) / 2 )
+    toBePosted.specifications.altoPuerta = formValue.altoTotal - 35
+    toBePosted.specifications.anchoPuerta2 = Math.floor( ( formValue.ancho - formValue.anchoVisagra * 2 ) / 2 )
 
     toBePosted = {
       quotation: toBePosted
@@ -48,8 +49,9 @@ export class TestService {
   muebleTv( formValue ) {
     let toBePosted: any = {
       product_id: 3,
-      user_id: 1,
-      quantity: formValue.quantity,
+      quantity: 1,
+      name: formValue.name,
+      email: formValue.email,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
 
@@ -98,7 +100,7 @@ export class TestService {
     let toBePosted: any = {
       product_id: 4,
       user_id: 1,
-      quantity: formValue.quantity,
+      quantity: 1,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
 
@@ -126,7 +128,6 @@ export class TestService {
     toBePosted.specifications.Separación_Topes_V = 80
     toBePosted.specifications.Cantidad_Modulos = formValue.Cantidad_Compartimentos - 2
 
-
     toBePosted = {
       quotation: toBePosted
     }
@@ -144,12 +145,12 @@ export class TestService {
 
   muebleLinos( formValue ) {
     let toBePosted: any = {
-      product_id: 5,
-      user_id: 1,
-      quantity: formValue.quantity,
+      product_id: 2,
+      name: formValue.name,
+      email: formValue.email,
+      quantity: 1,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
-
 
     toBePosted = {
       quotation: toBePosted
@@ -168,9 +169,10 @@ export class TestService {
 
   muebleTv4( formValue ) {
     let toBePosted: any = {
-      product_id: 5,
-      user_id: 1,
-      quantity: formValue.quantity,
+      name: formValue.name,
+      email: formValue.email,
+      product_id: 4,
+      quantity: 1,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
 
@@ -193,7 +195,7 @@ export class TestService {
     toBePosted.specifications.Ancho_Pt = Math.floor( 5 + toBePosted.specifications.Ancho_Sp / 2 - 2.5 )
     toBePosted.specifications.Alto_Sp = toBePosted.specifications.Alto_SH
     toBePosted.specifications.A_Lo_Ancho = Math.floor( toBePosted.specifications.Profundidad_TS / 2 - toBePosted.specifications.Profundidad_TS * .143 )
-    toBePosted.specifications[ "Entrepaños" ] = Math.floor( ( toBePosted.specifications.Alto_SV - toBePosted.specifications.Alto_SH ) / 2 - 10 )
+    toBePosted.specifications.Entrepanos = Math.floor( ( toBePosted.specifications.Alto_SV - toBePosted.specifications.Alto_SH ) / 2 - 10 )
 
     toBePosted = {
       quotation: toBePosted
@@ -213,8 +215,9 @@ export class TestService {
   muebleBanho( formValue ) {
     let toBePosted: any = {
       product_id: 5,
-      user_id: 1,
-      quantity: formValue.quantity,
+      name: formValue.name,
+      email: formValue.email,
+      quantity: 1,
       specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
     }
 

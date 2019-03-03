@@ -13,23 +13,13 @@ export class AngelFurnitureComponent implements OnInit {
 
   form = new FormGroup({
     name: new FormControl( null, [ Validators.required ] ),
-    email: new FormControl( null, [ Validators.required ] ),
+    email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
-    quantity: new FormControl( 1, [ Validators.required ] ),
-
-    precioMadera20: new FormControl( 200, [ Validators.required ] ),
-    precioMadera30: new FormControl( 100, [ Validators.required ] ),
-    precioMinifix: new FormControl( 100, [ Validators.required ] ),
-    precioChazo: new FormControl( 100, [ Validators.required ] ),
-    precioBisagra: new FormControl( 100, [ Validators.required ] ),
-
-    cotizacion: new FormControl( Math.floor( Math.random( ) * 100000 ), [ Validators.required ] ),
-
-    altoTotal: new FormControl( 2800, [ Validators.required ] ),
-    ancho: new FormControl( 2200, [ Validators.required ] ),
-    largo: new FormControl( 400, [ Validators.required ] ),
-    ancho2: new FormControl( 600, [ Validators.required ] ),
-    cantCajones: new FormControl( 5, [ Validators.required ] ),
+    altoTotal: new FormControl( 3500, [ Validators.required, Validators.min( 1800 ), Validators.max( 3500 ) ] ),
+    ancho: new FormControl( 3000, [ Validators.required, Validators.min( 1000 ), Validators.max( 3000 ) ] ),
+    largo: new FormControl( 1000, [ Validators.required, Validators.min( 400 ), Validators.max( 1000 ) ] ),
+    ancho2: new FormControl( 1500, [ Validators.required, Validators.min( 400 ) ] ),
+    cantCajones: new FormControl( 4, [ Validators.required, Validators.min( 1 ) ] ),
 
     espacioEntre: new FormControl( 300, [ Validators.required ] ),
     altoCajon: new FormControl( 200, [ Validators.required ] ),
@@ -37,8 +27,8 @@ export class AngelFurnitureComponent implements OnInit {
     espesorPuertas: new FormControl( 30, [ Validators.required ] ),
     anchoRiel: new FormControl( 20, [ Validators.required ] ),
     diametroVarilla: new FormControl( 30, [ Validators.required ] ),
-    anchoVisagra: new FormControl( 30, [ Validators.required ] ),
-    largoVisagra: new FormControl( 40, [ Validators.required ] ),
+    anchoVisagra: new FormControl( 34, [ Validators.required ] ),
+    largoBisagra: new FormControl( 40, [ Validators.required ] ),
   }, this.cantCajones )
 
   constructor( private testService: TestService, private alertService: AlertService, private router: Router ) { }
@@ -51,13 +41,19 @@ export class AngelFurnitureComponent implements OnInit {
     let altoCajon = AC.get( 'altoCajon' ).value
     let alto = AC.get( 'altoTotal' ).value * .8
 
-    if ( cantCajones * altoCajon > alto * .6 ) {
+    if ( AC.get( 'ancho2' ).value > AC.get( 'ancho' ).value / 2 ) {
+      AC.get( 'ancho2' ).setErrors({
+          max: true
+      })
+    } else if ( cantCajones * altoCajon > alto * .6 ) {
       AC.get( 'cantCajones' ).setErrors({
           error: true
       })
     } else {
         return null
     }
+
+    
 }
 
   sendRequest( ) {
@@ -88,21 +84,39 @@ export class AngelFurnitureComponent implements OnInit {
       case 'altoTotal':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 1800'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 3500'
       case 'ancho':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 1000'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 3000'
       case 'largo':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 400'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return 'Máximo 1000'
       case 'ancho2':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'min' ) )
+          return 'Mínimo 400'
+        else if ( this.form.get( name).hasError( 'max' ) )
+          return `Máximo ${ Number( this.form.get( 'ancho' ).value ) / 2 }`
       case 'name':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
       case 'email':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
+        else if ( this.form.get( name).hasError( 'email' ) )
+          return 'Email inválido'
       case 'quantity':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
