@@ -15,6 +15,8 @@ export class MuebleTvComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
+    phone: new FormControl( null, [ Validators.required ] ),
+
     Alto: new FormControl( 800, [ Validators.required, Validators.min( 500 ), Validators.max( 1500 ) ] ),
     Ancho: new FormControl( 1500, [ Validators.required, Validators.min( 1000 ), Validators.max( 2500 ) ] ),
     Profundidad: new FormControl( 350, [ Validators.required, Validators.min( 350 ), Validators.max( 800 ) ] ),
@@ -27,6 +29,9 @@ export class MuebleTvComponent implements OnInit {
 
   inputErrorHandler( name ) {
     switch ( name ) {
+      case 'phone':
+        if ( this.form.get( name ).hasError( 'required' ) )
+          return 'Este campo es requerido'
       case 'name':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'

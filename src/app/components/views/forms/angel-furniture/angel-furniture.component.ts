@@ -15,6 +15,8 @@ export class AngelFurnitureComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
+    phone: new FormControl( null, [ Validators.required ] ),
+
     altoTotal: new FormControl( 3500, [ Validators.required, Validators.min( 1800 ), Validators.max( 3500 ) ] ),
     ancho: new FormControl( 3000, [ Validators.required, Validators.min( 1000 ), Validators.max( 3000 ) ] ),
     largo: new FormControl( 1000, [ Validators.required, Validators.min( 400 ), Validators.max( 1000 ) ] ),
@@ -81,6 +83,9 @@ export class AngelFurnitureComponent implements OnInit {
 
   inputErrorHandler( name ) {
     switch ( name ) {
+      case 'phone':
+        if ( this.form.get( name ).hasError( 'required' ) )
+          return 'Este campo es requerido'
       case 'altoTotal':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'

@@ -1,4 +1,8 @@
 <div class="content">
+    <div class="preview">
+      <h3>Así se vería tu mueble</h3>
+      <img src="assets/img/portfolio/tv4.png" alt="Previsualización Closet">
+    </div>
     <form name="form" [formGroup]="form">
       <div class="row">
         <h3>Datos de usuario</h3>
@@ -16,6 +20,15 @@
             <label>Correo</label>
             <input type="email" class="form-control" formControlName="email">
             <span class="help-block" *ngIf="inputErrorHandler('email')!='none'">{{inputErrorHandler('email')}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" [class.has-error]="inputErrorHandler('phone')!='none'">
+            <label>Teléfono</label>
+            <input type="number" class="form-control" formControlName="phone">
+            <span class="help-block" *ngIf="inputErrorHandler('phone')!='none'">{{inputErrorHandler('phone')}}</span>
           </div>
         </div>
       </div>

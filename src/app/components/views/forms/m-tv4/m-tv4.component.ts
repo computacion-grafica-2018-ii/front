@@ -15,6 +15,8 @@ export class MTv4Component implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
+    phone: new FormControl( null, [ Validators.required ] ),
+
     alto: new FormControl( 1000, [ Validators.required, Validators.min( 500 ), Validators.max( 1000 ) ] ),
     ancho: new FormControl( 2000, [ Validators.required, Validators.min( 500 ), Validators.max( 2000 ) ] ),
     profundidad: new FormControl( 350, [ Validators.required, Validators.min( 200 ), Validators.max( 500 ) ] ),
@@ -45,6 +47,9 @@ export class MTv4Component implements OnInit {
 
   inputErrorHandler( name ) {
     switch ( name ) {
+      case 'phone':
+        if ( this.form.get( name ).hasError( 'required' ) )
+          return 'Este campo es requerido'
       case 'name':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'

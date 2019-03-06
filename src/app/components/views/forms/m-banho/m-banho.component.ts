@@ -15,6 +15,8 @@ export class MBanhoComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required, Validators.email ] ),
 
+    phone: new FormControl( null, [ Validators.required ] ),
+
     Ancho: new FormControl( 500, [ Validators.required, Validators.min( 500 ), Validators.max( 1000 ) ] ),
     Largo: new FormControl( 1200, [ Validators.required, Validators.min( 1000 ), Validators.max( 3000 ) ] ),
     Alto: new FormControl( 900, [ Validators.required, Validators.min( 700 ), Validators.max( 1200 ) ] ),
@@ -52,6 +54,9 @@ export class MBanhoComponent implements OnInit {
   inputErrorHandler( name ) {
     switch ( name ) {
       case 'name':
+        if ( this.form.get( name ).hasError( 'required' ) )
+          return 'Este campo es requerido'
+      case 'phone':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
       case 'email':

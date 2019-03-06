@@ -18,8 +18,9 @@ export class TestService {
       product_id: 1,
       name: formValue.name,
       email: formValue.email,
+      phone: formValue.phone,
       quantity: 1,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted.specifications.alto = formValue.altoTotal * .8
@@ -52,7 +53,8 @@ export class TestService {
       quantity: 1,
       name: formValue.name,
       email: formValue.email,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      phone: formValue.phone,
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted.specifications.Largo_TS = formValue.Ancho,
@@ -101,7 +103,8 @@ export class TestService {
       product_id: 4,
       user_id: 1,
       quantity: 1,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      phone: formValue.phone,
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted.specifications.Altura_Soporte_H = formValue.Largo_Total - 40
@@ -149,7 +152,8 @@ export class TestService {
       name: formValue.name,
       email: formValue.email,
       quantity: 1,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      phone: formValue.phone,
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted = {
@@ -173,7 +177,8 @@ export class TestService {
       email: formValue.email,
       product_id: 4,
       quantity: 1,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      phone: formValue.phone,
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted.specifications.Ancho_TS = formValue.ancho
@@ -218,7 +223,8 @@ export class TestService {
       name: formValue.name,
       email: formValue.email,
       quantity: 1,
-      specifications: _.omit( formValue, [ 'name', 'email', 'quantity' ] ),
+      phone: formValue.phone,
+      specifications: _.omit( formValue, [ 'name', 'email', 'quantity', 'phone' ] ),
     }
 
     toBePosted = {

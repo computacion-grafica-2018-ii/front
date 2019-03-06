@@ -15,6 +15,8 @@ export class MLinosComponent implements OnInit {
     name: new FormControl( null, [ Validators.required ] ),
     email: new FormControl( null, [ Validators.required ] ),
 
+    phone: new FormControl( null, [ Validators.required ] ),
+
     Height: new FormControl( 2500, [ Validators.required, Validators.min( 1900 ), Validators.max( 2500 ) ] ),
     Width: new FormControl( 2000, [ Validators.required, Validators.min( 1400 ), Validators.max( 2000 ) ] ),
     Depth: new FormControl( 550, [ Validators.required, Validators.min( 350 ), Validators.max( 550 ) ] ),
@@ -48,6 +50,9 @@ export class MLinosComponent implements OnInit {
 
   inputErrorHandler( name ) {
     switch ( name ) {
+      case 'phone':
+        if ( this.form.get( name ).hasError( 'required' ) )
+          return 'Este campo es requerido'
       case 'name':
         if ( this.form.get( name ).hasError( 'required' ) )
           return 'Este campo es requerido'
